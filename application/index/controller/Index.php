@@ -14,7 +14,6 @@ class Index
         }
         $res =(new Net())->get($data);
         Listen::where(['id'=>$data['id']])->update(['update_time'=>time()]);
-        dump($res);
     }
 
     public function hello($name = 'ThinkPHP5')

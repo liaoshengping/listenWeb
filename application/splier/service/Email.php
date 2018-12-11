@@ -16,6 +16,7 @@ class Email
 {
     public static function send($to='',$msg ='',$title ='你关注的内容有更新')
     {
+        echo "先配置邮箱信息";exit;
         $mail = new \PHPMailer\PHPMailer\PHPMailer();
 // 是否启用smtp的debug进行调试 开发环境建议开启 生产环境注释掉即可 默认关闭debug调试模式
         $mail->SMTPDebug = 1;
@@ -38,7 +39,7 @@ class Email
 // smtp登录的账号 QQ邮箱即可
         $mail->Username = '1194008361@qq.com';
 // smtp登录的密码 使用生成的授权码
-        $mail->Password = 'dhbazscrpcqgigbg';
+        $mail->Password = 'dhbazscrpcqgigbgg';
 // 设置发件人邮箱地址 同登录账号
         $mail->From = '1194008361@qq.com';
 // 邮件正文是否为html编码 注意此处是一个方法
