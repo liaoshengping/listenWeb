@@ -16,15 +16,27 @@ use QL\QueryList;
 
 class Query
 {
-    public function queryDo($url ='',$reg=[]){
+    public function queryDo($url ='',$reg=[],$site=''){
         if(empty($url) || empty($reg)){
             return false;
         }
-        $data = QueryList::get($url)
-            // 设置采集规则
-            ->rules($reg)
-            ->queryData();
-        return $data;
+        if($site ==''){
+            $data = QueryList::get($url)
+                // 设置采集规则
+                ->rules($reg)
+                ->queryData();
+            return $data;
+        }else{
+            $data = QueryList::get($url)
+                // 设置采集规则
+                ->rules($reg)
+                ->queryData(function ($item)use ($site){
+                    $item['url'] = $site.$item['url'];
+                    return $item;
+                });
+            return $data;
+        }
+
     }
 
 }

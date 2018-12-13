@@ -27,8 +27,13 @@ class Net
         if(empty($res)){
             return false;
         }
-        $reg = json_decode($res['content'],true);
-        $data =(new Query())->queryDo($url,$reg);
+//        $url = 'http://www.php.cn/toutiao.html';
+       $reg = json_decode($res['content'],true);
+//       $reg =  [
+//            'title'=>array('.ar-right >h2>a','text'),
+//            'url'=>array('.ar-right >h2>a','href')
+//        ];
+        $data =(new Query())->queryDo($url,$reg,$res['site_url']);
         if(empty($data)){
             return "失败";
         }
