@@ -27,14 +27,24 @@ class Net
         if(empty($res)){
             return false;
         }
-//        $url = 'http://www.php.cn/toutiao.html';
+//        $url = 'https://www.imooc.com/course/list?c=php';
        $reg = json_decode($res['content'],true);
 //       $reg =  [
-//            'title'=>array('.ar-right >h2>a','text'),
-//            'url'=>array('.ar-right >h2>a','href')
+//            'title'=>array('.course-card-content >h3','text'),
+//            'url'=>array('.course-card-container >a','href')
 //        ];
+
         $data =(new Query())->queryDo($url,$reg,$res['site_url']);
+
         if(empty($data)){
+            $timecache = cache($datas['listen'].'timecache');
+            if(empty($timecache)){
+                $timecache=0;
+            }
+            if($timecache >20){
+                Email::send('1194008361@qq.com',$datas['remark'].'监听的网站可能规则变了，或者网站关闭了',$datas['remark']);
+            }
+            cache($datas['listen'].'timecache',$timecache++,3600*3600);
             return "失败";
         }
         $send =[];
