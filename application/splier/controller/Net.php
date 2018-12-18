@@ -27,15 +27,15 @@ class Net
         if(empty($res)){
             return false;
         }
-//        $url = 'https://www.imooc.com/course/list?c=php';
+        $url = 'https://yingfeng.me/';
        $reg = json_decode($res['content'],true);
-//       $reg =  [
-//            'title'=>array('.course-card-content >h3','text'),
-//            'url'=>array('.course-card-container >a','href')
-//        ];
-
+       $reg =  [
+            'title'=>array('.excerpt >header>h2>a','text'),
+            'url'=>array('.excerpt >header>h2>a','href')
+        ];
+       echo json_encode($reg);exit;
         $data =(new Query())->queryDo($url,$reg,$res['site_url']);
-
+        dump($data);exit;
         if(empty($data)){
             $timecache = cache($datas['listen'].'timecache');
             if(empty($timecache)){
