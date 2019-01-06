@@ -143,6 +143,10 @@ return [
     // 异常处理handle类 留空使用 \think\exception\Handle
     'exception_handle'       => '',
     'login_email'=>'',
-    ''
+
+    'view_replace_str'  =>  [
+    '__PUBLIC__'=>'/public/',
+    '__ROOT__' => '/',
+]
 
 ];
