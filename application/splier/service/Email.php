@@ -25,23 +25,23 @@ class Email
 // smtp需要鉴权 这个必须是true
         $mail->SMTPAuth = true;
 // 链接qq域名邮箱的服务器地址
-        $mail->Host = 'smtp.qq.com';
+        $mail->Host = yaconf('email.Host');
 // 设置使用ssl加密方式登录鉴权
         $mail->SMTPSecure = 'ssl';
 // 设置ssl连接smtp服务器的远程服务器端口号
-        $mail->Port = 465;
+        $mail->Port = yaconf('email.Port');
 // 设置发送的邮件的编码
         $mail->CharSet = 'UTF-8';
 // 设置发件人昵称 显示在收件人邮件的发件人邮箱地址前的发件人姓名
-        $mail->FromName = 'liaosp';
+        $mail->FromName = yaconf('email.FromName');
 // smtp登录的账号 QQ邮箱即可
-        $mail->FromName = '廖圣平监听系统';
+        $mail->FromName = yaconf('email.FromName');
 // smtp登录的账号 QQ邮箱即可
-        $mail->Username = '1194008361@qq.com';
+        $mail->Username = yaconf('email.Username');
 // smtp登录的密码 使用生成的授权码
-        $mail->Password = 'dhbazscrpcqgigbg';
+        $mail->Password = yaconf('email.Password');
 // 设置发件人邮箱地址 同登录账号
-        $mail->From = '1194008361@qq.com';
+        $mail->From = yaconf('email.From');
 // 邮件正文是否为html编码 注意此处是一个方法
         $mail->isHTML(true);
 // 设置收件人邮箱地址

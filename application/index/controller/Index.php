@@ -11,8 +11,8 @@ class Index
     {
 
         $data = Listen::order('update_time', 'asc')->find();
-        dump($data);
-        exit;
+
+
         if (empty($data)) {
             return '失败';
         }

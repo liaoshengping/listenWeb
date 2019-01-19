@@ -27,15 +27,15 @@ class Net
         if(empty($res)){
             return false;
         }
-        $url = 'https://yingfeng.me/';
+//        $url = 'https://yingfeng.me/';
        $reg = json_decode($res['content'],true);
-       $reg =  [
-            'title'=>array('.excerpt >header>h2>a','text'),
-            'url'=>array('.excerpt >header>h2>a','href')
-        ];
-       echo json_encode($reg);exit;
+//       $reg =  [
+//            'title'=>array('.excerpt >header>h2>a','text'),
+//            'url'=>array('.excerpt >header>h2>a','href')
+//        ];
+//       echo json_encode($reg);exit;
         $data =(new Query())->queryDo($url,$reg,$res['site_url']);
-        dump($data);exit;
+//        dump($data);exit;
         if(empty($data)){
             $timecache = cache($datas['listen'].'timecache');
             if(empty($timecache)){
