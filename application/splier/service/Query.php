@@ -24,12 +24,14 @@ class Query
             $data = QueryList::get($url)
                 // 设置采集规则
                 ->rules($reg)
+                ->encoding('UTF-8','GB2312')->removeHead()
                 ->queryData();
             return $data;
         }else{
             $data = QueryList::get($url)
                 // 设置采集规则
                 ->rules($reg)
+                ->encoding('UTF-8','GB2312')->removeHead()
                 ->queryData(function ($item)use ($site){
                     $item['url'] = $site.$item['url'];
                     return $item;

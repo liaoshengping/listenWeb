@@ -27,11 +27,11 @@ class Net
         if(empty($res)){
             return false;
         }
-//        $url = 'https://yingfeng.me/';
+//        $url = 'http://www.fjfy.org/about.asp?classid=50';
        $reg = json_decode($res['content'],true);
 //       $reg =  [
-//            'title'=>array('.excerpt >header>h2>a','text'),
-//            'url'=>array('.excerpt >header>h2>a','href')
+//            'title'=>array('.gray_14_26 a','text'),
+//            'url'=>array('.gray_14_26 a','href')
 //        ];
 //       echo json_encode($reg);exit;
         $data =(new Query())->queryDo($url,$reg,$res['site_url']);
